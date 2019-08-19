@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season_name: MyString
+  created_at: 
+  updated_at: 2019-08-18 11:15:25
+
+two:
+  season_name: MyString
+  created_at: 
+  updated_at: 2019-08-18 11:15:25
