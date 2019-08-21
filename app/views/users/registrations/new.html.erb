@@ -1,29 +1,66 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+
+<center>
+  
+  <h1>新規登録</h1>
+  <%= render "users/shared/links" %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <p>お名前</p>
+    <%= f.text_field :last_name, placeholder: "※山田" %>
+    <%= f.text_field :first_name, placeholder: "※太郎" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <p>お名前（カタカナ）</p>
+    <%= f.text_field :last_name_kana, placeholder: "※ヤマダ" %>
+    <%=f.text_field :first_name_kana, placeholder: "※タロウ" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <p>ニックネーム</p>
+    <%= f.text_field :name, placeholder: "※ユーザーネーム" %>
+  </div>
+
+  <div class="field">
+    <p>電話番号</p>
+    <%= f.text_field :phone_number, placeholder: "※半角・ハイフン無し" %>
+  </div>
+
+  <div class="field">
+    <p>郵便番号</p>
+    <%= f.text_field :postal_code, placeholder: "※半角・ハイフン無し" %>
+  </div>
+
+  <div class="field">
+    <p>住所</p>
+    <%= f.text_area :street_address, placeholder: "※入力フォーム拡大　↓" %>
+  </div>
+
+  <div class="field">
+    <p>メールアドレス</p>
+    <%= f.text_field :email, placeholder: "※メールアドレスを入力" %>
+  </div>
+
+  <div class="field">
+    <p>パスワード
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %>
+    </p>
+      <%= f.password_field :password, placeholder: "※半角　英数字" %>
+  </div>
+
+  <div class="field">
+    <p>パスワード再入力</p>
+    <%= f.password_field :password_confirmation, placeholder: "※半角　英数字" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+      <div style="padding: 20px;"><%= f.submit "新規登録" %></div>
   </div>
-<% end %>
+  
+</center>
 
-<%= render "users/shared/links" %>
+
+<% end %>
