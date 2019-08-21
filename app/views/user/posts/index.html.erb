@@ -3,14 +3,12 @@
     <h1>ユーザーindex</h1>
     <% @posts.each do |f| %>
         <div class="post-box">
-            <% link_to user_post_path(post.id) do %>
                 <div class="post-contents">
-                    <%= attachment_image_tag f, :image, size: "300x300", fallback: "no_image.jpg" %>
+                    <%= attachment_image_tag f, :image, fomat: 'jpg', size: "300x300", fallback: "no_image.jpg" %>
                     <%= f.season_id %>
                     <%= f.region_id %>
                     <%= f.caption %>
                 </div>
-            <% end %>
         </div>
     <% end %>
 

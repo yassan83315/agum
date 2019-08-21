@@ -30,6 +30,7 @@ class User::PostsController < ApplicationController
       redirect_to user_post_path(@post_id)
     else
       redirect_to edit_user_post_path
+      flash[:notice] = "投稿に失敗しました。"
   end
 
   def destroy
@@ -44,7 +45,7 @@ class User::PostsController < ApplicationController
 
   private
     def post_prams
-      params.require(:post).permit(:season_id, :region_id, :user_id, :favorite_id, :image_id, :caption )
+      params.require(:post).permit(:season_id, :region_id, :user_id, :favorite_id, :image, :caption )
     end
   end
 
