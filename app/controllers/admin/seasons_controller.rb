@@ -5,7 +5,7 @@ class Admin::SeasonsController < ApplicationController
   def edit
   end
 
-    def create
+  def create
   end
 
   def update
