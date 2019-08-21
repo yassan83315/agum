@@ -4,7 +4,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def show
@@ -16,7 +16,7 @@ class User::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new
     if @post.save
       redirect_to user_posts_path
     else
