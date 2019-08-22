@@ -16,8 +16,16 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* viewの調整 */
+.field{
+	padding: 10px 0;
+}
 
 /*ヘッダー*/
 
@@ -28,7 +36,7 @@ header{
 	background-color: black;
 }
 .nav-list{
-	padding: 5px 7%;
+	padding: 10px 9.9%;
 	text-align: center;
 	display: inline-block;
 }
@@ -49,9 +57,4 @@ footer{
 	color: white;
 	text-align: center;
 	padding-top: 60px;
-=======
-/* viewの調整 */
-.field{
-	padding: 10px 0;
->>>>>>> 284659be286243d59fbc5e9b2913163aeac8b907:app/assets/stylesheets/application.scss
 }
