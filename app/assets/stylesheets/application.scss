@@ -13,9 +13,48 @@
  *= require_tree .
  *= require_self
  */
+ 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* viewの調整 */
 .field{
 	padding: 10px 0;
+}
+
+/*ヘッダー*/
+
+header{
+	width: 100%;
+	height: 100px;
+	color: white;
+	background-color: black;
+}
+.nav-list{
+	padding: 10px 9.9%;
+	text-align: center;
+	display: inline-block;
+}
+.site-name{
+	font-size: 36px;
+	text-align: center;
+}
+
+/*フッター*/
+
+footer{
+	width: 100%;
+	height: 150px;
+	margin-top: 500px;
+	background-color: black;
+}
+.copyright-area{
+	color: white;
+	text-align: center;
+	padding-top: 60px;
 }
