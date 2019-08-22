@@ -1,19 +1,13 @@
 <div class="container">
-	<h1>マイページ</h1>
-	<div class="user-profile">
-		<h2>ニックネーム</h2>
-		<div class="space"><%= @user.name %></div>
-		<h2>名前</h2>
-		<div class="space"><%= @user.last_name %><%= @user.first_name %></div>
-		<h2>名前（カナ）</h2>
-		<div calss="space"><%= @user.last_name_kana %><%= @user.first_name_kana %></div>
-		<h2>郵便番号</h2>
-		<div class="space"><%= @user.postal_code %></div>
-		<h2>住所</h2>
-		<div class="space"><%= @user.street_address %></div>
-		<h2>電話番号</h2>
-		<div class="space"><%= @user.phone_number %></div>
-		<h2>メールアドレス</h2>
-		<div class="space"><%= @user.email %></div>
+	<div class="col-md-3">
+		<h1>マイページ</h1>
+		<div class="user-profile">
+			<h4>ユーザーネーム</h4>
+			<div class="space"><%= @user.name %></div>
+		</div>
+		<%= link_to "プロフィールの確認/変更", edit_user_user_path(current_user.id), class: "btn btn-default" %>
+	</div>
+	<div class="col-md-9">
+		<h1>あなたが投稿した写真</h1>
 	</div>
 </div>
