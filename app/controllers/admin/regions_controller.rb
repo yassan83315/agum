@@ -13,5 +13,3 @@ class Admin::RegionsController < ApplicationController
 
   def destroy
   end
-
-end

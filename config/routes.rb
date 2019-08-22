@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins, :controllers => {
     :registrations => 'admins/registrations',
     :sessions => 'admins/sessions',
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
     :password => 'users/password'
   }
 
-
   namespace :admin do
     resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy]
     resources :users, only: [:show, :edit, :create, :update]
+    resources :favotite, only: [:create, :destroy]
   end
 
   root 'user/homes#top'

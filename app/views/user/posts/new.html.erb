@@ -1,2 +1,18 @@
-<h1>User::Posts#new</h1>
-<p>Find me in app/views/user/posts/new.html.erb</p>
+<div class="container">
+    <% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+	<% end %>
+    <div class="row">
+        <h1>新規投稿</h1>
+        
+        <%= form_for (@post), url: user_posts_path, method: :post do |f| %>
+        
+            <%= f.attachment_field :image %>
+            
+            <%= f.text_area :caption %>
+            
+            <%= f.submit "投稿する" %>
+        
+        <% end %>
+    </div>
+</div>
