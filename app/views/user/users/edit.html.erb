@@ -1,2 +1,52 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"">
+        <center>
+            
+            <h2>あなたのプロフィール</h2>
+            <%= form_for current_user, url: user_user_path, method: :patch do |user| %>
+        
+              <div class="field">
+                <p>お名前</p>
+                <%= user.text_field :last_name, class: "form_control", placeholder: "※山田" %>
+                <%= user.text_field :first_name, class: "form_control", placeholder: "※太郎" %>
+              </div>
+            
+              <div class="field">
+                <p>お名前（カタカナ）</p>
+                <%= user.text_field :last_name_kana, placeholder: "※ヤマダ" %>
+                <%= user.text_field :first_name_kana, placeholder: "※タロウ" %>
+              </div>
+            
+              <div class="field">
+                <p>ニックネーム</p>
+                <%= user.text_field :name, placeholder: "※ユーザーネーム" %>
+              </div>
+            
+              <div class="field">
+                <p>電話番号</p>
+                <%= user.text_field :phone_number, placeholder: "※半角・ハイフン無し" %>
+              </div>
+            
+              <div class="field">
+                <p>郵便番号</p>
+                <%= user.text_field :postal_code, placeholder: "※半角・ハイフン無し" %>
+              </div>
+            
+              <div class="field">
+                <p>住所</p>
+                <%= user.text_area :street_address, placeholder: "※入力フォーム拡大　↓" %>
+              </div>
+            
+              <div class="field">
+                <p>メールアドレス</p>
+                <%= user.text_field :email, placeholder: "※メールアドレスを入力" %>
+              </div>
+              <div style="padding: 20px;">
+                <%= user.submit "プロフィール内容を変更" %>
+              </div>
+            <% end %>
+         </center>
+    </div>
+    <div class="col-md-3"></div>
+</div>
