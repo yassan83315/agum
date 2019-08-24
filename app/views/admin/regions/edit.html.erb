@@ -1,2 +1,11 @@
-<h1>Admin::Regions#edit</h1>
-<p>Find me in app/views/admin/regions/edit.html.erb</p>
+<div class="container">
+	<div class="col-md-4"></div>
+	<div class="col-md-4", style="padding-top: 50px;">
+    	<h1>地域名変更ページ</h1>
+    	<%= form_for @region, url: admin_region_path do |region| %>
+        	<%= region.text_field :region_name %>
+        	<%= region.submit "地域名を変更" %>
+    	<% end %>
+	</div>
+	<div class="col-md-4"></div>
+</div>
