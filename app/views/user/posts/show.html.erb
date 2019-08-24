@@ -1,2 +1,18 @@
-<h1>User::Posts#show</h1>
-<p>Find me in app/views/user/posts/show.html.erb</p>
+<div class="contaimer">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="user-show-content">
+            <%= attachment_image_tag @post, :image, fomat: 'jpg', size: "600x500", fallback: "no_image.jpg" %>
+            <div>ここに季節（月）を表示</div>
+            <%= @post.season_id %>
+                    
+            <div>ここに地域を表示</div>
+            <%= @post.region_id %>
+                    
+            <div>ここにコメントを表示</div>
+            <%= @post.caption %>
+        </div>
+        
+    </div>
+    <div class="col-md-3"></div>
+</div>
