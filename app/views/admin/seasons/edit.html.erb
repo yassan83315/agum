@@ -1,2 +1,15 @@
-<h1>Admin::Seasons#edit</h1>
-<p>Find me in app/views/admin/seasons/edit.html.erb</p>
+<div class="container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4", style="padding-top: 50px;">
+        <% if flash[:notice] %>
+        	<div><%= flash[:notice] %></div>
+        <% end %>
+    	<h2>新規シーズン登録画面</h2>
+    	<%= form_for @season, url: admin_season_path do |season| %>
+    		<label>入力フォーム</label>
+    		<%= season.text_field :season_name %>
+    		<%= season.submit "登録" %>
+    	<% end %>
+    </div>
+    <div class="col-md-4"></div>
+</div>
