@@ -12,12 +12,11 @@ class User::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:find])
+    @post = Post.find(params[:id])
   end
 
   def create
-    @post = Post.new
-    @post.user_id = current_user.id
+    @post = Post.new(post_params)
     if @post.save
       redirect_to user_posts_path
     else
@@ -29,6 +28,7 @@ class User::PostsController < ApplicationController
     @post = Post.find(prams[:id])
     if @post.update
       redirect_to user_post_path(@post_id)
+      flash[:notice] = "投稿に成功しました。"
     else
       redirect_to edit_user_post_path
       flash[:notice] = "投稿に失敗しました。"
@@ -45,7 +45,7 @@ class User::PostsController < ApplicationController
   end
 
   private
-    def post_prams
+    def post_params
       params.require(:post).permit(:season_id, :region_id, :user_id, :favorite_id, :image, :caption )
     end
   end
