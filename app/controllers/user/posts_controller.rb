@@ -8,7 +8,7 @@ class User::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(prams[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
@@ -17,6 +17,7 @@ class User::PostsController < ApplicationController
 
   def create
     @post = Post.new
+    @post.user_id = current_user.id
     if @post.save
       redirect_to user_posts_path
     else

@@ -5,13 +5,13 @@
     <div class="row">
         <h1>新規投稿</h1>
         
-        <%= form_for (@post), url: user_posts_path, method: :post do |f| %>
+        <%= form_for (@post), url: user_posts_path, method: :post do |post| %>
         
-            <%= f.attachment_field :image %>
+            <%= post.attachment_field :image %>
             
-            <%= f.text_area :caption %>
+            <%= post.text_area :caption %>
             
-            <%= f.submit "投稿する" %>
+            <%= post.submit "投稿する" %>
         
         <% end %>
     </div>

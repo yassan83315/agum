@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'comments/new'
+    get 'comments/show'
+    get 'comments/edit'
+  end
   devise_for :admins, :controllers => {
     :registrations => 'admins/registrations',
     :sessions => 'admins/sessions',
