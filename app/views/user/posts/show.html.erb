@@ -3,11 +3,15 @@
     <div class="col-md-6">
         <div class="user-show-content">
             <%= attachment_image_tag @post, :image, fomat: 'jpg', size: "600x500", fallback: "no_image.jpg" %>
+            
+            <div>撮影者（ユーザーネーム）</div>
+            <%= @post.user.name%>
+            
             <div>ここに季節（月）を表示</div>
-            <%= @post.season_id %>
+            <%= @post.season.season_name %>
                     
             <div>ここに地域を表示</div>
-            <%= @post.region_id %>
+            <%= @post.region.region_name %>
                     
             <div>ここにコメントを表示</div>
             <%= @post.caption %>

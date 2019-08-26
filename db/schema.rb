@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_110555) do
+ActiveRecord::Schema.define(version: 2019_08_26_080456) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,14 +46,14 @@ ActiveRecord::Schema.define(version: 2019_08_24_110555) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "season_id"
-    t.string "region_id"
     t.string "user_id"
     t.string "favorite_id"
     t.text "image_id"
     t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "season_id"
+    t.integer "region_id"
   end
 
   create_table "regions", force: :cascade do |t|

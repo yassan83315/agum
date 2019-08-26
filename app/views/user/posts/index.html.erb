@@ -1,21 +1,17 @@
 <div class="container">
 
-    <h1>post index</h1>
+    <h1>投稿一覧</h1>
     <% @posts.each do |post| %>
         <div class="post-box">
-                <div class="col-md-4 ">
-                    <%= link_to user_post_path(post.id) do %>
-                    <%= attachment_image_tag post, :image, fomat: 'jpg', size: "300x300", fallback: "no_image.jpg" %>
-                    <% end %>
-                    <div>ここに季節（月）を表示</div>
-                    <%= post.season_id %>
-                    
-                    <div>ここに地域を表示</div>
-                    <%= post.region_id %>
-                    
-                    <div>ここにコメントを表示</div>
-                    <%= post.caption %>
-                </div>
+            <div class="col-md-4 ">
+                <%= attachment_image_tag post, :image, fomat: 'jpg', size: "300x300", fallback: "no_image.jpg" %>
+
+                <div class="post-conntent-line">時期</div>
+                <%= post.season.season_name %>
+                
+                <div class="post-conntent-line">場所</div>
+                <%= post.region.region_name %>
+            </div>
         </div>
     <% end %>
 
