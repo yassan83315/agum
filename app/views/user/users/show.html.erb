@@ -1,21 +1,30 @@
-<div class="container">
+<div class="container clearfix">
 	<div class="col-md-3">
 		<h1>マイページ</h1>
 		<div class="user-profile">
 			<h4>ユーザーネーム</h4>
-			<div class="space"><%= @user.name %></div>
+			<div class="space user-name-line"><%=  @user.name %></div>
 		</div>
-		<%= link_to "プロフィールの確認/変更", edit_user_user_path(current_user.id), class: "btn btn-default" %>
+		<% if @user == current_user %>
+			<%= link_to "プロフィールの確認/変更", edit_user_user_path(current_user.id), class: "btn btn-default" %>
+		<% end %>
 	</div>
-	<h1>あなたの投稿一覧</h1>
-	<% @posts.each do |p| %>
-		<div class="col-md-3">
-			<%= attachment_image_tag p, :image, fomat: 'jpg', size: "300x300", fallback: "no_image.jpg" %>
-			<div class="post-conntent-line">時期</div>
-			<%= p.season.season_name %>
-			
-			<div class="post-conntent-line">場所</div>
-			<%= p.region.region_name %>
-		</div>
-	<% end %>
+	<% if flash[:notice] %>
+		<p class="flash-font notice"><%= flash[:notice] %></p>
+    <% end %>
+    <div class="post-box">
+		<h1><%= @user.name %>さんの投稿一覧</h1>
+		<% @posts.each do |p| %>
+			<div class="col-md-3 post">
+				<%= link_to user_post_path(p.id) do %>
+					<%= attachment_image_tag p, :image, fomat: 'jpg', size: "240x200", fallback: "no_image.jpg" %>
+				<% end %>
+				<div class="post-content-line">時期</div>
+				<%= p.season.season_name %>
+				
+				<div class="post-content-line">場所</div>
+				<%= p.region.region_name %>
+			</div>
+		<% end %>
+	</div>
 </div>

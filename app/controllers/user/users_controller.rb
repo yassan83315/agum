@@ -1,7 +1,9 @@
 class User::UsersController < ApplicationController
+    before_action :authenticate_user!, only: [:edit, :show]
   def show
-  	@user = current_user
+  	@post = Post.find(params[:id])
   	@posts = Post.where(user_id: params[:id])
+  	@user = User.find(params[:id])
   end
 
   def edit
@@ -11,8 +13,10 @@ class User::UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
   	if @user.update(user_params)
+  	  flash[:notice] = "ユーザー情報を変更しました"
   		redirect_to user_user_path(current_user)
   	else
+  	  flash[:notice] = "ユーザー情報の変更に失敗しました"
   		redirect_to edit_user_user_path(current_user)
   	end
   end

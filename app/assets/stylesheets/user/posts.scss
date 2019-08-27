@@ -5,9 +5,26 @@
 .post-contents{
     border: 1px solid;
 }
-.post-conntent-line{
-    width: 150px;
+.post-content-line{
+    width: 200px;
     margin-bottom: 5px;
     margin-top: 15px;
     border-bottom: 0.5px solid;
+}
+
+.post-delete-btn{
+    padding: 20px;
+    float: right;
+}
+
+
+.user-show-content{
+    margin-top: 10px;
+}
+.post{
+    margin: 20px 0;
+}
+
+.main-space{
+    height: 420px;
 }

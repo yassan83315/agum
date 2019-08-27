@@ -1,4 +1,5 @@
 class User::PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :show, :edit]
  
  
   def new
@@ -6,7 +7,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-     @posts = Post.all
+    @posts = Post.all
   end
 
   def show
@@ -24,16 +25,18 @@ class User::PostsController < ApplicationController
       flash[:notice] = "投稿に成功しました。"
       redirect_to user_posts_path
     else
-      redirect_to new_user_post_path
       flash[:notice] = "投稿に失敗しました。"
+      render "new"
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    if @post.destory
-      redirect_to user_user_path(@user_id)
+    if @post.destroy
+      flash[:notice] = "投稿を削除しました"
+      redirect_to user_user_path(current_user)
     else
+      flash[:notice] = "投稿の削除に失敗しました"
       redirect_to edit_user_post_path
     end
 

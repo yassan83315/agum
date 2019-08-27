@@ -1,4 +1,5 @@
 class Admin::SeasonsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @season = Season.new
   end
