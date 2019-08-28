@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :user do
-    get 'comments/new'
-    get 'comments/show'
-    get 'comments/edit'
-  end
   devise_for :admins, :controllers => {
     :registrations => 'admins/registrations',
     :sessions => 'admins/sessions',
@@ -24,9 +19,10 @@ Rails.application.routes.draw do
     resources :seasons, only: [:edit, :new, :create, :update, :destroy]
   end
   namespace :user do
-    resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy]
-    resources :users, only: [:show, :edit, :create, :update]
-    resources :favotite, only: [:create, :destroy]
+    resources :posts, only: [:index, :show, :new, :create, :destroy]
+    resources :users, only: [:show, :edit, :create, :update, :destroy]
+    resources :favotites, only: [:create, :destroy]
+    resources :comments, only: [:new, :show, :create, :destroy]
   end
 
   root 'user/homes#top'

@@ -2,7 +2,9 @@
     <div class="col-md-3"></div>
     <div class="col-md-6"">
         <center>
-            
+          <% if flash[:notice] %>
+		        <p class="flash-font notice"><%= flash[:notice] %></p>
+          <% end %>
             <h2>あなたのプロフィール</h2>
             <%= form_for current_user, url: user_user_path, method: :patch do |user| %>
         
@@ -42,11 +44,15 @@
                 <p>メールアドレス</p>
                 <%= user.text_field :email, placeholder: "※メールアドレスを入力" %>
               </div>
-              <div style="padding: 20px;">
-                <%= user.submit "プロフィール内容を変更" %>
-              </div>
+              <span style="padding: 20px;">
+                <%= user.submit "プロフィール内容を変更", class:"btn btn-primary" %>
+              </spam>
             <% end %>
+            <span style="padding: 20px;">
+              <%= link_to '退会する', user_user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class:"btn btn-danger" %>
+            </span>
          </center>
+         <div class="space"></div>
     </div>
     <div class="col-md-3"></div>
 </div>

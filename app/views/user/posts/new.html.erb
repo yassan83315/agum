@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container main-space">
     <% if flash[:notice] %>
 		<p class="text-font notice"><%= flash[:notice] %></p>
 	<% end %>
@@ -8,6 +8,12 @@
         <%= form_for (@post), url: user_posts_path, method: :post do |post| %>
         
             <%= post.attachment_field :image %>
+            
+             <label>時期を選択</label>
+            <%= post.collection_select :season_id, Season.all, :id, :season_name, :include_blank => true %>
+            
+            <label>地域を選択</label>
+            <%= post.collection_select :region_id, Region.all, :id, :region_name, :include_blank => true %>
             
             <%= post.text_area :caption %>
             
