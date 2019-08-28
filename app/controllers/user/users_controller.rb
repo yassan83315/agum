@@ -1,7 +1,6 @@
 class User::UsersController < ApplicationController
     before_action :authenticate_user!, only: [:edit, :show]
   def show
-  	@post = Post.find(params[:id])
   	@posts = Post.where(user_id: params[:id])
   	@user = User.find(params[:id])
   end
@@ -20,9 +19,16 @@ class User::UsersController < ApplicationController
   		redirect_to edit_user_user_path(current_user)
   	end
   end
+  
+  def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      flash[:notice] = "退会しました。ご利用ありがとうございました。"
+      redirect_to("/")
+  end
 
   private
   	def user_params
-  		params.require(:user).permit(:post_id, :name, :last_name, :first_name, :last_name_kana, :first_name_kana, :street_adress, :postal_code, :phone_number, :email, :password, :is_deleted)
+  		params.require(:user).permit(:post_id, :name, :last_name, :first_name, :last_name_kana, :first_name_kana, :street_address, :postal_code, :phone_number, :email, :password, :is_deleted)
   	end
 end

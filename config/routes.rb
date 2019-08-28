@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   namespace :user do
     resources :posts, only: [:index, :show, :new, :create, :destroy]
-    resources :users, only: [:show, :edit, :create, :update]
+    resources :users, only: [:show, :edit, :create, :update, :destroy]
     resources :favotites, only: [:create, :destroy]
     resources :comments, only: [:new, :show, :create, :destroy]
   end

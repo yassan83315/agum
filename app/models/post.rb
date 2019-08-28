@@ -7,5 +7,5 @@ class Post < ApplicationRecord
 	belongs_to :region
 	
 	validates :image, presence: true
-	
+	validates :caption, presence: true, length: { maximum: 200 }
 end

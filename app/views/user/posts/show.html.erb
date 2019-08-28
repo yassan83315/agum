@@ -6,7 +6,7 @@
             <%= attachment_image_tag @post, :image, fomat: 'jpg', size: "600x500", fallback: "no_image.jpg" %>
             
             <div class="post-content-line">投稿者（ユーザーネーム）</div>
-            <%= @post.user.name%>
+            <%= @post.user.name %>
             
             <div class="post-content-line">時期</div>
             <%= @post.season.season_name %>
@@ -20,6 +20,10 @@
         <div class="post-delete-btn">
             <% if @post.user == current_user %>
                 <span><%= link_to 'この投稿を削除する', user_post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></span>
+            <% else %>
+                <%= link_to user_user_path(@post.user_id) do %>
+                    <div　class:"btn btn-primary"><%= @post.user.name %>さんの投稿一覧はこちら</div>
+                <% end %>
             <% end %>
         </div>
     </div>
